@@ -527,7 +527,8 @@ class VarianceScaling(Initializer):
           shape, 0.0, stddev, dtype, seed=self.seed)
     elif self.distribution == "untruncated_normal":
       stddev = gen_math_ops.sqrt(scale)
-      return random_ops.random_normal(shape, 0.0, stddev, dtype, seed=self.seed)
+      return random_ops.random_normal(
+          shape, 0.0, stddev, dtype, seed=self.seed)
     else:
       limit = gen_math_ops.sqrt(3.0 * scale)
       return random_ops.random_uniform(
